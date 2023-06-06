@@ -1,0 +1,17 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.14 # This is the action
+        with:
+          heroku_api_key: ${{secrets.2af85a5d-2bdf-4eb0-8533-295386489abe}}
+          heroku_app_name: "bookborrowing" #Must be unique in Heroku
+          heroku_email: "syazaifah@gmail.com"
